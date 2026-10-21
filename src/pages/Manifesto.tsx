@@ -29,8 +29,8 @@ export default function Manifesto() {
   return (
     <section><div className="wrap">
       <PageHead
-        n="01" label="Manifesto" aside="12 axiomas"
-        title="O manifesto" mute="em doze axiomas."
+        n="01" label="Manifesto" aside="13 axiomas"
+        title="O manifesto" mute="em treze axiomas."
         sub={<>Pra quem já entregou tarefa com o PO digitando "e aí, subiu?" no Slack. Copie o link e mande o axioma certo pro grupo certo.</>}
       />
       <div className="actions" style={{ marginBottom: 32 }}>

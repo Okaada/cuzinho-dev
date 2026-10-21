@@ -13,6 +13,7 @@ export const AXIOMS: [title: string, note: string][] = [
   ['Rollback é admitir derrota.', 'Nós só vamos pra frente. Às vezes caindo.'],
   ['A daily dura 15 minutos. A sua parte dura 14.', '"Ontem eu fiz várias coisas, hoje vou fazer outras, nenhum impedimento."'],
   ['Documentação é o nome da branch.', 'feature/ajuste-final-v2-agora-vai-mesmo explica tudo.'],
+  ['Nós só vamos para frente se formos de turma.', 'Ninguém entrega no cuzinho sozinho.'],
 ]
 
 export const DICT: [raw: string, corp: string][] = [
