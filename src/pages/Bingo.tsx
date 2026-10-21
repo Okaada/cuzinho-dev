@@ -57,7 +57,7 @@ const T = translations(
     title: 'Standup Bingo',
     head: 'Standup bingo.',
     mute: 'This meeting could have been an email.',
-    sub: 'Open it before the meeting and mark every phrase someone says. Got a row, column or diagonal: unmute and yell.',
+    sub: 'Open it before the meeting and mark each phrase as someone says it. Complete a row, column or diagonal? Unmute and yell.',
     board: 'Bingo board',
     won: 'BINGO! Yell it in the middle of standup.',
     postText: 'Got BINGO at today’s standup 🎯 This meeting could have been an email.',

@@ -30,13 +30,13 @@ const T = translations(
     mute: 'for when you don’t know what changed.',
     sub: 'But you still need to commit before 6 PM.',
     suggested: 'Suggested message',
-    friday: 'friday mode',
+    friday: 'Friday mode',
     normal: 'normal mode',
     fridayCheck: 'Friday mode (skips the hooks and force-pushes to main)',
     another: 'Another message',
     copy: 'Copy command',
     postOnX: 'Post on X',
-    copiedFriday: 'Copied. May God be with you.',
+    copiedFriday: 'Copied. Godspeed.',
     copied: 'Command copied.',
     postText: (msg: string) => `Today’s commit: ${msg}`,
   },
@@ -50,9 +50,11 @@ export default function Commit() {
   const [msg, setMsg] = useState(() => pick(COMMITS))
   const [friday, setFriday] = useState(false)
 
+  // Escaped so messages like Revert "..." still paste as a valid shell command
+  const quoted = msg.replace(/"/g, '\\"')
   const cmd = friday
-    ? `git add -A && git commit --no-verify -m "${msg}" && git push --force origin main`
-    : `git commit -m "${msg}"`
+    ? `git add -A && git commit --no-verify -m "${quoted}" && git push --force origin main`
+    : `git commit -m "${quoted}"`
 
   return (
     <section><div className="wrap">

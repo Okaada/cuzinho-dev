@@ -14,9 +14,9 @@ const fromHash = (hash: string): Hit => (/^#a\d+$/.test(hash) ? { id: hash.slice
 const T = translations(
   {
     title: 'O Manifesto',
-    aside: '16 axiomas',
+    aside: (n: number) => `${n} axiomas`,
     head: 'O manifesto',
-    mute: 'em dezesseis axiomas.',
+    mute: 'em dezenove axiomas.',
     sub: 'Pra quem já entregou tarefa com o PO digitando "e aí, subiu?" no Slack. Copie o link e mande o axioma certo pro grupo certo.',
     random: 'Axioma aleatório',
     suggest: 'Sugerir axioma no GitHub',
@@ -28,10 +28,10 @@ const T = translations(
   },
   {
     title: 'The Manifesto',
-    aside: '16 axioms',
+    aside: (n: number) => `${n} axioms`,
     head: 'The manifesto',
-    mute: 'in sixteen axioms.',
-    sub: 'For anyone who has shipped a ticket while the PO kept typing "so, is it live yet?" on Slack. Copy the link and drop the right axiom in the right channel.',
+    mute: 'in nineteen axioms.',
+    sub: 'For anyone who has shipped a ticket while the PO kept typing “so, is it live yet?” on Slack. Copy the link and drop the right axiom in the right channel.',
     random: 'Random axiom',
     suggest: 'Suggest an axiom on GitHub',
     copyLink: 'copy link',
@@ -63,7 +63,7 @@ export default function Manifesto() {
   return (
     <section><div className="wrap">
       <PageHead
-        n="01" label="Manifesto" aside={t.aside}
+        n="01" label="Manifesto" aside={t.aside(AXIOMS.length)}
         title={t.head} mute={t.mute}
         sub={t.sub}
       />

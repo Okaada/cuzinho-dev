@@ -37,7 +37,7 @@ const T = translations(
     copy: 'Copy',
     postOnX: 'Post on X',
     copied: 'Copied. Now read it with a straight face.',
-    postText: (text: string) => `My excuse for today’s standup: "${text}"`,
+    postText: (text: string) => `My excuse for today’s standup: “${text}”`,
   },
 )
 

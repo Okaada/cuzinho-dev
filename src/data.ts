@@ -17,6 +17,9 @@ export const AXIOMS: [title: string, note: string][] = [
   ['Sênior é quem digita "continua".', 'Pleno digita "arruma". Júnior ainda abre o editor.'],
   ['Deu erro, cola o erro. Deu outro erro, cola o outro erro.', 'Uma hora o erro cansa antes de você.'],
   ['Código é problema da IA.', 'O seu trabalho é escrever "não funcionou" com cada vez mais raiva.'],
+  ['Sexta sem deploy é sugestão.', 'Igual limite de velocidade.'],
+  ['--force é estilo de vida.', 'Branch protegida é só quebra-molas.'],
+  ['Plantão é de quem não silenciou o Slack a tempo.', 'O resto tá "ausente" desde as 17:58.'],
 ]
 
 export const DICT: [raw: string, corp: string][] = [
@@ -34,6 +37,9 @@ export const DICT: [raw: string, corp: string][] = [
   ['Nem li, só dei accept.', 'O código foi gerado com apoio de ferramentas de IA e passou por uma revisão ágil.'],
   ['Não faço ideia de como isso funciona.', 'A solução segue uma arquitetura emergente, orientada por IA.'],
   ['O cliente pediu mais uma alteração no cuzinho do prazo.', 'Recebemos uma solicitação de mudança de escopo próxima à data de entrega e estamos avaliando o impacto.'],
+  ['Eu já te falei essa porra.', 'Conforme meu último e-mail,'],
+  ['Não é problema meu, caralho.', 'Vou envolver o responsável por esse ponto.'],
+  ['Essa reunião é uma perda de tempo do caralho.', 'Vou acompanhar pelas notas de forma assíncrona.'],
 ]
 
 export const BADGE_MD = `[![deploy: no cuzinho](https://img.shields.io/badge/deploy-no%20cuzinho-d6331f)](${SITE_URL})`
@@ -77,6 +83,9 @@ export const EXCUSES: [text: string, tag: ExcuseTag][] = [
   ['Acabaram os tokens no meio da feature.', 'prazo'],
   ['Tô esperando o agente terminar. Ele resolveu refatorar o projeto inteiro de novo.', 'daily'],
   ['A IA apagou o banco, mas pediu desculpas muito educadamente.', 'prod'],
+  ['Era uma mudança de uma linha. A linha tinha 400 caracteres.', 'prazo'],
+  ['Meu PR tá esperando review desde a última reestruturação.', 'daily'],
+  ['Alguém deixou uma feature flag ligada em produção. Não vou dizer quem. (Fui eu.)', 'prod'],
 ]
 
 export const COMMITS = [
@@ -107,6 +116,9 @@ export const COMMITS = [
   'feat: o que a IA quis',
   'fix: pede pra IA arrumar o que a IA fez',
   'chore: accept all',
+  'chore: adiciona .env (ops)',
+  'test: apaga os testes pro CI ficar verde',
+  'fix: por favor',
 ]
 
 export const BINGO_FREE = '17:59 de sexta'
@@ -143,4 +155,7 @@ export const BINGO = [
   'Pede pra IA',
   'Foi a IA que fez',
   'Acabou o limite',
+  'Depois a gente volta nisso',
+  'Desculpa, pode falar',
+  'Tão vendo minha tela?',
 ]

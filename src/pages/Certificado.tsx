@@ -56,7 +56,7 @@ const T = translations(
     title: 'Certificate',
     aside: 'Issued instantly',
     head: 'Official certificate.',
-    mute: 'At the last second, but shipped.',
+    mute: 'Cutting it close. Still shipped.',
     sub: 'Fill it in and post it on X so everyone knows who runs the Friday deploy.',
     nameLabel: 'Your name',
     whatLabel: 'What you shipped',
