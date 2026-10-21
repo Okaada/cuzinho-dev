@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AXIOMS, SITE_URL } from '../data'
+import { AXIOMS, REPO_URL, SITE_URL } from '../data'
 import { useCopy } from '../toast'
 import { useLocation, useTitle } from '../router'
 import { postOnX } from '../share'
@@ -35,6 +35,7 @@ export default function Manifesto() {
       />
       <div className="actions" style={{ marginBottom: 32 }}>
         <button className="btn" type="button" onClick={random}>Axioma aleatório</button>
+        <a className="btn ghost" href={REPO_URL} target="_blank" rel="noopener">Sugerir axioma no GitHub</a>
       </div>
       <ol className="axioms">
         {AXIOMS.map(([title, note], i) => {
