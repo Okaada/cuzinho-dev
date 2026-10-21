@@ -69,7 +69,7 @@ export default function Bingo() {
   return (
     <section><div className="wrap">
       <PageHead
-        n="05" label="Bingo" aside="5 × 5"
+        n="06" label="Bingo" aside="5 × 5"
         title="Bingo da daily." mute="A reunião podia ser um e-mail."
         sub="Abra antes da reunião e marque cada frase que alguém falar. Completou linha, coluna ou diagonal: liga o microfone e grita."
       />

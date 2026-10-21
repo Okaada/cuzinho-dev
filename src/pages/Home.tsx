@@ -37,6 +37,7 @@ const PAGES = [
   { to: '/manifesto', k: '16 axiomas', title: 'O Manifesto', text: 'Os princípios de quem sobe na sexta às 17:59 e dorme tranquilo.', art: [30, 55, 40, 80] },
   { to: '/tradutor', k: 'RH aprovado', title: 'Tradutor Corporativo', text: 'O que você pensa versus o que você manda no e-mail.', art: [70, 70, 35, 35] },
   { to: '/desculpas', k: 'Gerador', title: 'Desculpas pra Daily', text: 'Sorteie a desculpa certa pra cada ocasião. Produção caiu? Tem.', art: [25, 45, 65, 85] },
+  { to: '/elogios', k: 'Gerador', title: 'Elogios Corporativos', text: 'Feedback positivo com a sinceridade de sempre. Começa elogio, termina recado.', art: [85, 60, 35, 15] },
   { to: '/commit', k: 'Gerador', title: 'Mensagem de Commit', text: 'fix: agora vai. Com modo sexta, que já vem com --force.', art: [90, 20, 60, 40] },
   { to: '/bingo', k: 'Jogo', title: 'Bingo da Daily', text: 'Marque cada "dá pra ver rapidinho?" e grite bingo no meio da reunião.', art: [50, 50, 50, 50] },
   { to: '/certificado', k: 'Oficial', title: 'Certificado', text: 'Comprove que você entrega. No cuzinho, mas entrega. E poste no X.', art: [40, 75, 40, 100] },
@@ -91,7 +92,7 @@ export default function Home() {
       </div></section>
 
       <section className="dark"><div className="wrap">
-        <PageHead n="01" label="Ferramentas" title="Tudo pra sobreviver" mute="até sexta." sub="Seis ferramentas testadas em produção. Nenhuma em homologação." />
+        <PageHead n="01" label="Ferramentas" title="Tudo pra sobreviver" mute="até sexta." sub="Sete ferramentas testadas em produção. Nenhuma em homologação." />
         <div className="cards">
           {PAGES.map((pg, j) => (
             <Link key={pg.to} className="card" to={pg.to}>

@@ -75,7 +75,7 @@ export default function Certificado() {
   return (
     <section className="dark"><div className="wrap">
       <PageHead
-        n="06" label="Certificado" aside="Emissão imediata"
+        n="07" label="Certificado" aside="Emissão imediata"
         title="Certificado oficial." mute="No cuzinho, mas entrega."
         sub="Preencha e poste no X pra todo mundo ver quem manda no deploy de sexta."
       />
