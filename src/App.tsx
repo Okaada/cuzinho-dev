@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Manifesto from './pages/Manifesto'
 import Tradutor from './pages/Tradutor'
 import Desculpas from './pages/Desculpas'
+import Elogios from './pages/Elogios'
 import Commit from './pages/Commit'
 import Bingo from './pages/Bingo'
 import Certificado from './pages/Certificado'
@@ -18,6 +19,7 @@ const ROUTES: Record<string, ComponentType> = {
   '/manifesto': Manifesto,
   '/tradutor': Tradutor,
   '/desculpas': Desculpas,
+  '/elogios': Elogios,
   '/commit': Commit,
   '/bingo': Bingo,
   '/certificado': Certificado,
@@ -27,6 +29,7 @@ const NAV = [
   ['/manifesto', 'Manifesto'],
   ['/tradutor', 'Tradutor'],
   ['/desculpas', 'Desculpas'],
+  ['/elogios', 'Elogios'],
   ['/commit', 'Commit'],
   ['/bingo', 'Bingo'],
   ['/certificado', 'Certificado'],

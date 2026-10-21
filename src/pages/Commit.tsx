@@ -18,7 +18,7 @@ export default function Commit() {
   return (
     <section><div className="wrap">
       <PageHead
-        n="04" label="Commit" aside={`${COMMITS.length} mensagens`}
+        n="05" label="Commit" aside={`${COMMITS.length} mensagens`}
         title="Mensagem de commit" mute="pra quem não sabe o que mudou."
         sub="Mas precisa commitar antes das 18h."
       />
