@@ -79,6 +79,7 @@ input{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:2px solid 
 .form{display:grid;gap:16px}
 .dark .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
 .dark .btn:hover{box-shadow:4px 4px 0 var(--bg)}
+.dark .btn.ghost{background:transparent;color:var(--bg)}
 
 .cert{background:var(--paper);color:var(--ink);border:3px double var(--ink);padding:28px;position:relative;outline:8px solid var(--paper);min-width:0}
 .cert .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center}
