@@ -1,13 +1,19 @@
 import { DICT } from '../data'
 import { useCopy } from '../toast'
+import { useTitle } from '../router'
+import PageHead from '../components/PageHead'
 
-export default function Translator() {
+export default function Tradutor() {
+  useTitle('Tradutor Corporativo')
   const copy = useCopy()
   return (
-    <section id="tradutor"><div className="wrap">
-      <h2>Tradutor Corporativo</h2>
-      <p className="sub">O que você pensa versus o que você manda no e-mail. Copie a versão do lado direito e mantenha o emprego.</p>
-      <div className="dict-head" aria-hidden="true"><span>O que você pensa</span><span>O que você escreve</span></div>
+    <section><div className="wrap">
+      <PageHead
+        n="02" label="Tradutor" aside="RH aprovado"
+        title="O que você pensa," mute="o que você manda no e-mail."
+        sub="Copie a versão da direita e mantenha o emprego."
+      />
+      <div className="dict-head label" aria-hidden="true"><span>O que você pensa</span><span>O que você escreve</span></div>
       <ul className="dict">
         {DICT.map(([raw, corp]) => (
           <li key={raw} className="pair">

@@ -2,6 +2,8 @@ import { useEffect, useState, type FormEvent } from 'react'
 import { useToast } from '../toast'
 import { SITE_URL } from '../data'
 import { renderCertificate } from '../certImage'
+import { useTitle } from '../router'
+import PageHead from '../components/PageHead'
 
 const FILE_NAME = 'certificado-no-cuzinho.png'
 
@@ -20,7 +22,8 @@ function download(blob: Blob) {
   setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
-export default function Certificate() {
+export default function Certificado() {
+  useTitle('Certificado')
   const toast = useToast()
   const [nome, setNome] = useState('Dev Sênior de Sexta')
   const [feito, setFeito] = useState('a migração do banco às 17:58')
@@ -70,9 +73,12 @@ export default function Certificate() {
   }
 
   return (
-    <section className="dark" id="certificado"><div className="wrap">
-      <h2>Certificado Oficial</h2>
-      <p className="sub">Comprove para o mercado que você entrega. No cuzinho, mas entrega. Preencha e poste no X pra todo mundo ver quem manda no deploy de sexta.</p>
+    <section className="dark"><div className="wrap">
+      <PageHead
+        n="06" label="Certificado" aside="Emissão imediata"
+        title="Certificado oficial." mute="No cuzinho, mas entrega."
+        sub="Preencha e poste no X pra todo mundo ver quem manda no deploy de sexta."
+      />
       <div className="cert-grid">
         <form className="form" onSubmit={postOnX}>
           <div>

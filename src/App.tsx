@@ -1,45 +1,71 @@
-import { useCallback, useState } from 'react'
+import { useEffect, type ComponentType } from 'react'
 import { ToastProvider } from './toast'
-import { AXIOMS } from './data'
-import Hero from './components/Hero'
-import Manifesto from './components/Manifesto'
-import Translator from './components/Translator'
-import Certificate from './components/Certificate'
-import Badge from './components/Badge'
+import { REPO_URL } from './data'
+import { Link, navigate, useLocation } from './router'
+import { useDeployMinute } from './time'
+import Logo from './components/Logo'
+import Home from './pages/Home'
+import Manifesto from './pages/Manifesto'
+import Tradutor from './pages/Tradutor'
+import Desculpas from './pages/Desculpas'
+import Commit from './pages/Commit'
+import Bingo from './pages/Bingo'
+import Certificado from './pages/Certificado'
+import NotFound from './pages/NotFound'
 
-// Wrapped in an object so picking the same axiom twice still re-triggers the scroll
-export type Hit = { id: string } | null
+const ROUTES: Record<string, ComponentType> = {
+  '/': Home,
+  '/manifesto': Manifesto,
+  '/tradutor': Tradutor,
+  '/desculpas': Desculpas,
+  '/commit': Commit,
+  '/bingo': Bingo,
+  '/certificado': Certificado,
+}
 
-const initialHit = (): Hit => (/^#a\d+$/.test(location.hash) ? { id: location.hash.slice(1) } : null)
+const NAV = [
+  ['/manifesto', 'Manifesto'],
+  ['/tradutor', 'Tradutor'],
+  ['/desculpas', 'Desculpas'],
+  ['/commit', 'Commit'],
+  ['/bingo', 'Bingo'],
+  ['/certificado', 'Certificado'],
+]
 
 export default function App() {
-  const [hit, setHit] = useState<Hit>(initialHit)
+  const { path, hash } = useLocation()
+  const panic = useDeployMinute()
 
-  const randomAxiom = useCallback(() => {
-    setHit({ id: 'a' + (1 + Math.floor(Math.random() * AXIOMS.length)) })
-  }, [])
+  // Axiom links used to live on the home page (cuzinho.dev/#a5)
+  useEffect(() => {
+    if (path === '/' && /^#a\d+$/.test(hash)) navigate('/manifesto' + hash, { replace: true })
+  }, [path, hash])
+
+  useEffect(() => {
+    if (!location.hash) window.scrollTo(0, 0)
+  }, [path])
+
+  useEffect(() => {
+    document.body.classList.toggle('panic', panic)
+  }, [panic])
+
+  const Page = ROUTES[path] ?? NotFound
 
   return (
     <ToastProvider>
-      <div className="bar"><div className="wrap">
-        <span><span className="dot"></span>status: <b>em produção (não testado)</b></span>
-        <span>dias sem deploy na sexta: <b>0</b></span>
-      </div></div>
-      <div className="tape" aria-hidden="true"></div>
+      <nav className="site" aria-label="Principal"><div className="wrap">
+        <Link className="brand" to="/"><Logo />cuzinho.dev</Link>
+        <div className="links">
+          {NAV.map(([to, label]) => <Link key={to} to={to}>{label}</Link>)}
+        </div>
+        <span className="status"><span className="dot"></span>{panic ? 'Deployando, não mexe' : 'Em obra'}</span>
+      </div></nav>
 
-      <Hero onRandom={randomAxiom} />
-
-      <div className="tape" aria-hidden="true"></div>
-      <Manifesto hit={hit} />
-
-      <div className="tape" aria-hidden="true"></div>
-      <Translator />
-      <Certificate />
-      <Badge />
+      <main><Page /></main>
 
       <footer><div className="wrap">
-        <span>cuzinho.dev · feito na sexta às 17:59</span>
-        <span>Contribua com axiomas via pull request (sem review, claro)</span>
+        <span>cuzinho.dev · obra iniciada numa sexta às 17:59</span>
+        <a href={REPO_URL} target="_blank" rel="noopener">Contribua via pull request (sem review, claro) ↗</a>
       </div></footer>
     </ToastProvider>
   )
