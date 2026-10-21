@@ -34,7 +34,7 @@ function Countdown() {
 }
 
 const PAGES = [
-  { to: '/manifesto', k: '13 axiomas', title: 'O Manifesto', text: 'Os princípios de quem sobe na sexta às 17:59 e dorme tranquilo.', art: [30, 55, 40, 80] },
+  { to: '/manifesto', k: '16 axiomas', title: 'O Manifesto', text: 'Os princípios de quem sobe na sexta às 17:59 e dorme tranquilo.', art: [30, 55, 40, 80] },
   { to: '/tradutor', k: 'RH aprovado', title: 'Tradutor Corporativo', text: 'O que você pensa versus o que você manda no e-mail.', art: [70, 70, 35, 35] },
   { to: '/desculpas', k: 'Gerador', title: 'Desculpas pra Daily', text: 'Sorteie a desculpa certa pra cada ocasião. Produção caiu? Tem.', art: [25, 45, 65, 85] },
   { to: '/commit', k: 'Gerador', title: 'Mensagem de Commit', text: 'fix: agora vai. Com modo sexta, que já vem com --force.', art: [90, 20, 60, 40] },

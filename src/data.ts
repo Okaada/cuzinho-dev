@@ -5,7 +5,7 @@ export const AXIOMS: [title: string, note: string][] = [
   ['Se compilou, tá pronto.', 'Se passou no CI, foi sorte. Não questione a sorte.'],
   ['Teste é coisa de quem tem tempo. Nós temos prazo.', 'O usuário final é a melhor suíte de testes já criada, e ainda é de graça.'],
   ['Estimativa: pense num número, divida por dois, entregue no cuzinho.', 'Story point é só a unidade de medida do desespero.'],
-  ['Code review é o colega aprovando sem ler.', 'Porque ele também está no cuzinho.'],
+  ['Code review é o colega aprovando sem ler.', 'Porque ele também está no cuzinho. E quem escreveu também não leu: foi a IA.'],
   ['Todo hotfix é permanente.', 'O comentário // TODO: arrumar depois tem a mesma idade que o projeto.'],
   ['Se ninguém reclamou em produção, é feature.', 'Se reclamaram, é comportamento esperado.'],
   ['"Funciona na minha máquina" é ambiente de homologação.', 'Docker é só a sua máquina com mais passos.'],
@@ -14,6 +14,9 @@ export const AXIOMS: [title: string, note: string][] = [
   ['A daily dura 15 minutos. A sua parte dura 14.', '"Ontem eu fiz várias coisas, hoje vou fazer outras, nenhum impedimento."'],
   ['Documentação é o nome da branch.', 'feature/ajuste-final-v2-agora-vai-mesmo explica tudo.'],
   ['Nós só vamos para frente se formos de turma.', 'Ninguém solta o cuzinho de ninguém.'],
+  ['Sênior é quem digita "continua".', 'Pleno digita "arruma". Júnior ainda abre o editor.'],
+  ['Deu erro, cola o erro. Deu outro erro, cola o outro erro.', 'Uma hora o erro cansa antes de você.'],
+  ['Código é problema da IA.', 'O seu trabalho é escrever "não funcionou" com cada vez mais raiva.'],
 ]
 
 export const DICT: [raw: string, corp: string][] = [
@@ -28,6 +31,8 @@ export const DICT: [raw: string, corp: string][] = [
   ['Não fui eu.', 'Vou analisar o histórico de commits para entender a origem do problema.'],
   ['Foda-se, sobe assim.', 'Seguiremos com o deploy e monitoraremos ativamente os indicadores.'],
   ['Me fodi no deploy.', 'O deploy apresentou instabilidades pontuais e já estamos atuando na mitigação.'],
+  ['Nem li, só dei accept.', 'O código foi gerado com apoio de ferramentas de IA e passou por uma revisão ágil.'],
+  ['Não faço ideia de como isso funciona.', 'A solução segue uma arquitetura emergente, orientada por IA.'],
   ['O cliente pediu mais uma alteração no cuzinho do prazo.', 'Recebemos uma solicitação de mudança de escopo próxima à data de entrega e estamos avaliando o impacto.'],
 ]
 
@@ -68,6 +73,10 @@ export const EXCUSES: [text: string, tag: ExcuseTag][] = [
   ['Era fuso horário. Sempre que tem data no meio, é fuso horário.', 'prod'],
   ['O estagiário mergeou na main. O estagiário era eu.', 'prod'],
   ['Ia subir na quinta, mas esperei a sexta, como manda a metodologia.', 'prazo'],
+  ['A IA disse que tava pronto pra produção. Com emoji de foguete e tudo.', 'prod'],
+  ['Acabaram os tokens no meio da feature.', 'prazo'],
+  ['Tô esperando o agente terminar. Ele resolveu refatorar o projeto inteiro de novo.', 'daily'],
+  ['A IA apagou o banco, mas pediu desculpas muito educadamente.', 'prod'],
 ]
 
 export const COMMITS = [
@@ -95,6 +104,9 @@ export const COMMITS = [
   'test: comenta o teste que tava quebrando',
   'perf: remove o sleep(3000) que eu mesmo coloquei',
   'style: prettier no projeto inteiro, boa sorte no review',
+  'feat: o que a IA quis',
+  'fix: pede pra IA arrumar o que a IA fez',
+  'chore: accept all',
 ]
 
 export const BINGO_FREE = '17:59 de sexta'
@@ -128,4 +140,7 @@ export const BINGO = [
   'Erro 500',
   'Bom dia, pessoal (14h)',
   'Ah, mas é só um if',
+  'Pede pra IA',
+  'Foi a IA que fez',
+  'Acabou o limite',
 ]
