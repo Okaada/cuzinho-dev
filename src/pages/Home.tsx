@@ -27,7 +27,7 @@ const T = translations(
     sweat: 'd : h : m : s · começa a suar',
     deadline: 'Entrega oficial · sexta 17:59',
     pages: [
-      { k: '19 axiomas', title: 'O Manifesto', text: 'Os princípios de quem sobe na sexta às 17:59 e dorme tranquilo.' },
+      { k: '{n} axiomas', title: 'O Manifesto', text: 'Os princípios de quem sobe na sexta às 17:59 e dorme tranquilo.' },
       { k: 'RH aprovado', title: 'Tradutor Corporativo', text: 'O que você pensa versus o que você manda no e-mail.' },
       { k: 'Gerador', title: 'Desculpas pra Daily', text: 'Sorteie a desculpa certa pra cada ocasião. Produção caiu? Tem.' },
       { k: 'Gerador', title: 'Mensagem de Commit', text: 'fix: agora vai. Com modo sexta, que já vem com --force.' },
@@ -60,7 +60,7 @@ const T = translations(
     sweat: 'd : h : m : s · start sweating',
     deadline: 'Official ship time · Friday 5:59 PM',
     pages: [
-      { k: '19 axioms', title: 'The Manifesto', text: 'The principles of those who deploy on Friday at 5:59 PM and sleep like a baby.' },
+      { k: '{n} axioms', title: 'The Manifesto', text: 'The principles of those who deploy on Friday at 5:59 PM and sleep like a baby.' },
       { k: 'HR approved', title: 'Corporate Translator', text: 'What you think versus what you actually put in the email.' },
       { k: 'Generator', title: 'Standup Excuses', text: 'The right excuse for every occasion. Prod is down? There’s one for that.' },
       { k: 'Generator', title: 'Commit Message', text: 'fix: should work now. With Friday mode, --force included.' },
@@ -174,7 +174,7 @@ export default function Home() {
                 <h3>{t.pages[j].title}</h3>
                 <p>{t.pages[j].text}</p>
               </div>
-              <div className="foot"><span>{t.pages[j].k}</span><span>{p(j + 1)} <span className="x">→</span></span></div>
+              <div className="foot"><span>{t.pages[j].k.replace('{n}', String(AXIOMS.length))}</span><span>{p(j + 1)} <span className="x">→</span></span></div>
             </Link>
           ))}
         </div>

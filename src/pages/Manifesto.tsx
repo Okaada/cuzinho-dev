@@ -16,7 +16,7 @@ const T = translations(
     title: 'O Manifesto',
     aside: (n: number) => `${n} axiomas`,
     head: 'O manifesto',
-    mute: 'em dezenove axiomas.',
+    mute: (n: number) => `em ${n} axiomas.`,
     sub: 'Pra quem já entregou tarefa com o PO digitando "e aí, subiu?" no Slack. Copie o link e mande o axioma certo pro grupo certo.',
     random: 'Axioma aleatório',
     suggest: 'Sugerir axioma no GitHub',
@@ -30,7 +30,7 @@ const T = translations(
     title: 'The Manifesto',
     aside: (n: number) => `${n} axioms`,
     head: 'The manifesto',
-    mute: 'in nineteen axioms.',
+    mute: (n: number) => `in ${n} axioms.`,
     sub: 'For anyone who has shipped a ticket while the PO kept typing “so, is it live yet?” on Slack. Copy the link and drop the right axiom in the right channel.',
     random: 'Random axiom',
     suggest: 'Suggest an axiom on GitHub',
@@ -64,7 +64,7 @@ export default function Manifesto() {
     <section><div className="wrap">
       <PageHead
         n="01" label="Manifesto" aside={t.aside(AXIOMS.length)}
-        title={t.head} mute={t.mute}
+        title={t.head} mute={t.mute(AXIOMS.length)}
         sub={t.sub}
       />
       <div className="actions" style={{ marginBottom: 32 }}>
