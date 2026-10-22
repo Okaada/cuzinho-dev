@@ -11,7 +11,10 @@ const HOT = '#E5322D'
 const DISPLAY = '"Geist", "Helvetica Neue", Arial, sans-serif'
 const MONO = '"Geist Mono", ui-monospace, Menlo, monospace'
 
-export type CertData = { nome: string; feito: string; data: string; reg: string }
+// Fixed lines of the certificate, translated by the page
+export type CertText = { institute: string; title: string; certify: string; delivered: string; rest: string; stamp: [string, string] }
+
+export type CertData = { nome: string; feito: string; data: string; reg: string; text: CertText }
 
 type Run = { text: string; bold: boolean }
 
@@ -85,17 +88,17 @@ export async function renderCertificate(d: CertData): Promise<Blob> {
 
   ctx.fillStyle = SOFT
   ctx.font = `400 18px ${MONO}`
-  spaced(ctx, 'INSTITUTO BRASILEIRO DE ENTREGAS NO LIMITE', cx, py + 110, '4px')
+  spaced(ctx, d.text.institute.toUpperCase(), cx, py + 110, '4px')
 
   ctx.fillStyle = INK
   ctx.font = `300 64px ${DISPLAY}`
   ctx.letterSpacing = '-2px'
-  ctx.fillText('Certificado de Entrega No Cuzinho', cx, py + 196)
+  ctx.fillText(d.text.title, cx, py + 196)
   ctx.letterSpacing = '0px'
 
   ctx.fillStyle = SOFT
   ctx.font = `400 18px ${MONO}`
-  spaced(ctx, 'CERTIFICAMOS QUE', cx, py + 262, '4px')
+  spaced(ctx, d.text.certify.toUpperCase(), cx, py + 262, '4px')
 
   // name shrinks to fit
   ctx.fillStyle = INK
@@ -113,9 +116,9 @@ export async function renderCertificate(d: CertData): Promise<Blob> {
   ctx.fillRect(cx - 520, nameY + 26, 1040, 2)
 
   const { lines, space, font } = wrapRuns(ctx, [
-    { text: 'entregou', bold: false },
+    { text: d.text.delivered, bold: false },
     { text: d.feito + ',', bold: true },
-    { text: 'com zero testes, zero documentação e cem por cento de fé, honrando os princípios da Metodologia No Cuzinho.', bold: false },
+    { text: d.text.rest, bold: false },
   ], 28, 960)
   ctx.textAlign = 'left'
   let y = nameY + 94
@@ -149,8 +152,8 @@ export async function renderCertificate(d: CertData): Promise<Blob> {
   ctx.lineWidth = 2
   ctx.strokeRect(-84, -32, 168, 64)
   ctx.font = `400 17px ${MONO}`
-  spaced(ctx, 'APROVADO', 0, -4, '2px')
-  spaced(ctx, 'SEM REVIEW', 0, 20, '2px')
+  spaced(ctx, d.text.stamp[0], 0, -4, '2px')
+  spaced(ctx, d.text.stamp[1], 0, 20, '2px')
   ctx.restore()
 
   return new Promise((resolve, reject) =>
