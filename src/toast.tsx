@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useRef, useState, type ReactNode } from 'react'
+import { translations, useT } from './i18n'
 
 type Toast = (msg: string) => void
 const ToastContext = createContext<Toast>(() => {})
@@ -23,16 +24,22 @@ export function ToastProvider({ children }: { children: ReactNode }) {
 
 export const useToast = () => useContext(ToastContext)
 
+const T = translations(
+  { failed: 'Não deu pra copiar. Seleciona na mão, no cuzinho mesmo.', blocked: 'Não deu pra copiar. Seleciona na mão.' },
+  { failed: 'Couldn’t copy. Select it by hand like it’s 1999.', blocked: 'Couldn’t copy. Select it by hand.' },
+)
+
 export function useCopy() {
   const toast = useToast()
+  const t = useT(T)
   return useCallback((text: string, msg: string) => {
     try {
       navigator.clipboard.writeText(text).then(
         () => toast(msg),
-        () => toast('Não deu pra copiar. Seleciona na mão, no cuzinho mesmo.'),
+        () => toast(t.failed),
       )
     } catch {
-      toast('Não deu pra copiar. Seleciona na mão.')
+      toast(t.blocked)
     }
-  }, [toast])
+  }, [toast, t])
 }
